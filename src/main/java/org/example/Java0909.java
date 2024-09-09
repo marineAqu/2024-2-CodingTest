@@ -33,7 +33,6 @@ public class Java0909 {
             }
             else{
                 //해당되는 경우 출력
-                System.out.println(n);
                 for(int i=firpoint; i<=laspoint; i++){
                     System.out.print(i);
                     if(i!=laspoint) System.out.print("+");
@@ -45,7 +44,7 @@ public class Java0909 {
                 answer++;
             }
         }
-
+        System.out.println(n);
         System.out.println("총 개수: "+answer);
     }
 
@@ -65,8 +64,28 @@ public class Java0909 {
         Arrays.sort(arr);
 
         for(int i=0; i<n; i++){
-            firpoint = 1;
-            laspoint = firpoint + 1;
+            firpoint = 0;
+            laspoint = n-1;
+
+            while (firpoint < laspoint){
+                if(arr[firpoint] + arr[laspoint] == arr[i]){
+                    if(firpoint != i && laspoint != i) {
+                        goodNum++;
+
+                        System.out.println(arr[i]+"is goodNum: "+arr[firpoint]+"+"+arr[laspoint]);
+
+                        break;
+                    }
+                    else{
+                        firpoint++;
+                        laspoint--;
+                    }
+                }
+                else if(arr[firpoint] + arr[laspoint] < arr[i]) firpoint++;
+                else if(arr[firpoint] + arr[laspoint] > arr[i]) laspoint--;
+
+                if(firpoint >= n || laspoint < 0) break;
+            }
         }
 
         System.out.println("좋은 수의 개수: "+goodNum);
