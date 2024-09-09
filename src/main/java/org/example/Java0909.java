@@ -64,11 +64,19 @@ public class Java0909 {
         Arrays.sort(arr);
 
         for(int i=0; i<n; i++){
+
+            System.out.println("체크: "+i);
+
             firpoint = 0;
             laspoint = n-1;
 
+            if(i == n-1) laspoint = i - 1;
+            else if(i == 0) firpoint = 1;
+
             while (firpoint < laspoint){
                 if(arr[firpoint] + arr[laspoint] == arr[i]){
+                    System.out.println("chek!!!!!!!!!!!");
+
                     if(firpoint != i && laspoint != i) {
                         goodNum++;
 
