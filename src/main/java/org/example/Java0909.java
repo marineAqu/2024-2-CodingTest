@@ -2,7 +2,6 @@ package org.example;
 
 import java.util.Arrays;
 import java.util.Scanner;
-import java.util.SortedMap;
 
 public class Java0909 {
     //2강 자료구조
