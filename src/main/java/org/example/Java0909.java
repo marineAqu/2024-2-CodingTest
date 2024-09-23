@@ -133,6 +133,8 @@ public class Java0909 {
 
         Deque<Node> deque = new ArrayDeque<>();
 
+        Long start = System.currentTimeMillis();
+
         for(int i=0; i<n; i++) {
             int now = Integer.parseInt(temp.split(" ")[i]);
 
@@ -142,8 +144,10 @@ public class Java0909 {
             deque.addLast(new Node(now, i));
 
             if(deque.getFirst().index <= i-L) deque.removeFirst();
-            System.out.print(deque.getFirst().value+" ");
+            System.out.println(deque.getFirst().value+" ");
         }
+
+        System.out.println(System.currentTimeMillis() - start + "ms");
     }
 
     public void no36(){
