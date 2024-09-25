@@ -114,39 +114,6 @@ public class Java0923{
         System.out.println(sum);
     }
 
-
-    private void quickSort(int start, int end, int[] arr, int k){
-        if(start >= end) return;
-
-        int pivot = start;
-        int left = start+1;
-        int right = end;
-        int temp = 0;
-
-        while(left <= right){
-            while(left <= end && arr[left] <= arr[pivot]) left++;
-            while(right > start && arr[right] >= arr[pivot]) right--;
-
-            if(left > right){
-                temp = arr[right];
-                arr[right] = arr[pivot];
-                arr[pivot] = temp;
-            }
-            else{
-                temp = arr[left];
-                arr[left] = arr[right];
-                arr[right] = temp;
-            }
-        }
-
-        if (right > start) {
-            quickSort(start, right - 1, arr, k);
-        }
-        if (right + 1 < end) {
-            quickSort(right + 1, end, arr, k);
-        }
-    }
-
     private void modQuicksort(int[] arr, int start, int end, int k){
         int pivot = findPivot(start, end, arr);
 
@@ -195,11 +162,9 @@ public class Java0923{
         //28번 슬라이드 문제, 퀵정렬 문제[019] k번째 수 구하기 (시간제한 2초)
 
         // 5개짜리 파일
-        /*
-        BufferedReader br = new BufferedReader(new FileReader("C:\\Codingtest2024\\src\\main\\resources\\Java0923\\quick_5.txt"));
-        int n = 5;
-        int k = 2;
-         */
+        //BufferedReader br = new BufferedReader(new FileReader("C:\\Codingtest2024\\src\\main\\resources\\Java0923\\quick_5.txt"));
+        //int n = 5;
+        //int k = 2;
 
         //100개짜리 파일
         /*
@@ -214,10 +179,9 @@ public class Java0923{
 
 
         StringTokenizer st = new StringTokenizer(br.readLine());
-        int i = 0;
         int[] arr = new int[n];
 
-        for(i=0; i<n; i++) arr[i] = Integer.parseInt(st.nextToken());
+        for(int i=0; i<n; i++) arr[i] = Integer.parseInt(st.nextToken());
 
         modQuicksort(arr, 0, n-1, k);
 
