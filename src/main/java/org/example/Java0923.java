@@ -53,7 +53,6 @@ public class Java0923{
                     minIndex = k;
                 }
             }
-
             //교환
             temp = arr[i];
             arr[i] = arr[minIndex];
@@ -68,14 +67,16 @@ public class Java0923{
         //20번 슬라이드 문제, 삽입정렬 문제[018] ATM 인출시간 계산하기 (시간제한 1초)
 
         //5개짜리 파일
-        /*
+
         BufferedReader br = new BufferedReader(new FileReader("C:\\Codingtest2024\\src\\main\\resources\\Java0923\\insertion_5.txt"));
         int n = 5;
-         */
+
 
         //1000개짜리 파일
+        /*
         BufferedReader br = new BufferedReader(new FileReader("C:\\Codingtest2024\\src\\main\\resources\\Java0923\\insertion_1000.txt"));
         int n = 1000;
+         */
 
         int[] arr = new int[n];
         int temp = 0;
@@ -113,7 +114,8 @@ public class Java0923{
         System.out.println(sum);
     }
 
-    private void quickSort(int start, int end, int[] arr){
+
+    private void quickSort(int start, int end, int[] arr, int k){
         if(start >= end) return;
 
         int pivot = start;
@@ -137,19 +139,67 @@ public class Java0923{
             }
         }
 
-        quickSort(start, right-1, arr);
-        quickSort(right+1, end, arr);
+        if (right > start) {
+            quickSort(start, right - 1, arr, k);
+        }
+        if (right + 1 < end) {
+            quickSort(right + 1, end, arr, k);
+        }
     }
+
+    private void modQuicksort(int[] arr, int start, int end, int k){
+        int pivot = findPivot(start, end, arr);
+
+        if(pivot == k) return;
+        else if(k < pivot) modQuicksort(arr, start, pivot-1, k);
+        else modQuicksort(arr, pivot+1, end, k);
+    }
+
+    private int findPivot(int start, int end, int[] arr){
+
+        //데이터가 2개인 경우
+        if(start + 1 == end){
+            if(arr[start] > arr[end]) swap(arr, start, end);
+            return end;
+        }
+
+        int m = (start + end) / 2;
+
+        swap(arr, start, m);
+        int pivot = arr[start];
+        int i = start + 1;
+        int j = end;
+
+        while (i <= j) {
+            while (j >= start + 1 && pivot < arr[j]) j--;  //피벗보다 작은 수가 나올 때까지 j--
+            while (i <= end && pivot > arr[i] ) i++;  //피벗보다 큰 수가 나올 떄까지 i++
+
+            if (i < j) swap(arr, i++, j--);  // 찾은 i와 j를 교환하기
+            else break;
+        }
+
+        arr[start] = arr[j];
+        arr[j] = pivot;
+
+        return j;
+    }
+
+    private void swap(int[] arr, int a, int b){
+        int temp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = temp;
+    }
+
 
     public void no28() throws IOException {
         //28번 슬라이드 문제, 퀵정렬 문제[019] k번째 수 구하기 (시간제한 2초)
 
         // 5개짜리 파일
-
+        /*
         BufferedReader br = new BufferedReader(new FileReader("C:\\Codingtest2024\\src\\main\\resources\\Java0923\\quick_5.txt"));
         int n = 5;
         int k = 2;
-
+         */
 
         //100개짜리 파일
         /*
@@ -158,21 +208,18 @@ public class Java0923{
         int k = 20;
          */
 
-        /*
         BufferedReader br = new BufferedReader(new FileReader("C:\\Codingtest2024\\src\\main\\resources\\Java0923\\quick_5000000.txt"));
         int n = 5000000;
         int k = 50;
-         */
+
 
         StringTokenizer st = new StringTokenizer(br.readLine());
         int i = 0;
         int[] arr = new int[n];
 
-        for(i=0; i<n; i++){
-            arr[i] = Integer.parseInt(st.nextToken());
-        }
+        for(i=0; i<n; i++) arr[i] = Integer.parseInt(st.nextToken());
 
-        quickSort(0, n-1, arr);
+        modQuicksort(arr, 0, n-1, k);
 
         System.out.println(arr[k-1]);
     }
