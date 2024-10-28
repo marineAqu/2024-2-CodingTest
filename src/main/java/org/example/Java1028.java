@@ -1,13 +1,17 @@
 package org.example;
 
-import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
+import java.util.Stack;
 
 public class Java1028 {
     public void no7() {
         //7번 슬라이드 문제, 정수론 문제[032] 소수 구하기 (제한시간 2초)
 
         Scanner sc = new Scanner(System.in);
+
+        long start = System.currentTimeMillis();
 
         //시작 끝
         int m = sc.nextInt();
@@ -29,6 +33,8 @@ public class Java1028 {
         //소수 출력
         for(int i=m; i<=n; i++)
             if(arr[i] == 0) System.out.println(i);
+
+        System.out.println("걸린 시간(ms): "+(System.currentTimeMillis()-start));
     }
 
     public void no18() {
@@ -81,7 +87,7 @@ public class Java1028 {
         int b = sc.nextInt();
         int mod = GCD(a, b);
 
-        System.out.println("mod(최대공약수): "+mod);
+        //System.out.println("mod(최대공약수): "+mod);
 
         System.out.print("최소공배수: "+(a*b)/mod);
     }
@@ -95,13 +101,48 @@ public class Java1028 {
         int a = sc.nextInt();
         int b = sc.nextInt();
         int c = sc.nextInt();
+        int temp = 0;
+
+        ArrayList<Integer> quo = new ArrayList<>(); //몫
+        ArrayList<Integer> rem = new ArrayList<>(); //나머지
+
+        int x = 0, y = 0;
+        int mod = GCD(a, b);
+        //나머지, 몫 저장
+        quo.add(a / b);
+        rem.add(a % b);
+
+        temp = b;
+
+        while (true) {
+            quo.add(temp / rem.get(rem.size() - 1));
+            rem.add(temp % rem.get(rem.size() - 1));
+            temp = rem.get(rem.size() - 2);
+
+            if (rem.get(rem.size() - 1) == 0) break;
+        }
+
+        // 배수 형태일 경우
+        if(c % mod == 0) {
+            x = 1; y = 0;
+            int xf;
+            rem.add(x);
+            for(int i=0; i<quo.size(); i++){
+                xf = x;
+                x = y;
+                y = xf - (x * quo.get(quo.size() - (i+1)));
+            }
+
+            x *= c / mod;
+            y *= c / mod;
+
+            System.out.println("x: "+x+", y: "+y);
+        }
+
+        // 배수 형태가 아닐 경우
+        else {
+            System.out.println("-1");
+        }
 
     }
-
-    /*for(int i=2; i<n; i++){
-            temp = i*i;
-            if(temp >= (n-m+1)) break; //인덱스 넘치면 정지
-            arr[temp-m] = 1;
-        }
-         */
 }
