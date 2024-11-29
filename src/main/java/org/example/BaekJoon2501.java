@@ -8,7 +8,8 @@ public class BaekJoon2501 {
     public void no2501(){
         Scanner sc = new Scanner(System.in);
 
-        //백준 10431번: 줄 세우기 (실버 5)
+        //백준 2501번: 약수 구하기 (브론즈 3)
+        //n의 약수 중 m번째 작은 수 찾기
         int n = sc.nextInt();
         int m = sc.nextInt();
 
