@@ -8,6 +8,7 @@ public class Programmers42839 {
     LinkedList<Integer> linkedList = new LinkedList<>();
     boolean[] visited;
 
+    //부르트포스(완전탐색)
     public void dfs(int num){
         for(int i=0; i<arr.length; i++){
             if(!visited[i]){
