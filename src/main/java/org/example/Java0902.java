@@ -1,9 +1,9 @@
 package org.example;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Java0902 {
+    //1장: 시간복잡도, 디버깅, 자료구조
 
     public void no2(){
         Scanner sc = new Scanner(System.in);
