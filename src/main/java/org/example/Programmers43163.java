@@ -1,44 +1,39 @@
 package org.example;
 
-public class Programmers43163 {
-}
-class Node{
-    Node[] child;
-    boolean isEnd;
+import java.util.*;
 
-    public Node(){
-        child = new Node[26];
-        isEnd = false;
-    }
+public class Programmers43163 {
 
     public int solution(String begin, String target, String[] words) {
-        //루트
-        Node root = new Node();
-        Node current;
-        int index;
         int count = 0;
+        int equalCount = 0;
+        int[] visited = new int[words.length];
+        Queue<String> queue = new LinkedList<>();
 
-        //받은 문자로 트리 만들기
-        for(int i=0; i<words.length; i++){
-            current = root;
+        queue.add(begin);
 
-            //각 String에 대해서 트리 만들기
-            for(int k=0; k<words[i].length(); i++){
-                index = words[i].charAt(k) - 'a';
+        //bfs 실행
+        while (!queue.isEmpty()) {
+            String now = queue.poll();
+            //방문 ++해주기
 
-                if(current.child[index] == null){
-                    current.child[index] = new Node();
+            for(String n : words){
+                equalCount = 0;
+
+                //1글자만 다른지 확인
+                for(int i=0; i<now.length(); i++){
+                    if(now.charAt(i) != n.charAt(i)){
+                        equalCount++;
+                    }
                 }
 
-                current = current.child[index];
+                //아래에 1글자만 다른것에 미방문한 것인지도 체크 필요
+                //1글자만 다른 경우
+                if(equalCount == 1) {
+                    queue.add(n);
+                }
             }
         }
-
-        //이제 가는 데 걸리는 count를 세야 한다
-        //while(true){
-
-        //}
-
 
         return count;
     }
