@@ -7,6 +7,17 @@ class BaekJoon1260{
     static boolean visited[];
     static Queue<Integer> queue = new LinkedList<Integer>();
 
+    static void addNode(int a, int b){
+        for(int i=0; i<adj[a].size(); i++){
+            if(adj[a].get(i) > b){
+                adj[a].add(i, b);
+                return;
+            }
+        }
+
+        adj[a].add(b);
+    }
+
     static void dfs(int i){
         visited[i] = true;
         System.out.print(i+" ");
@@ -53,8 +64,9 @@ class BaekJoon1260{
             a = sc.nextInt();
             b = sc.nextInt();
 
-            adj[a].add(b);
-            adj[b].add(a);
+            //삽입 정렬 필요 (작은 순서대로 출력)
+            addNode(a, b);
+            addNode(b, a);
         }
 
         //dfs / bfs 수행
