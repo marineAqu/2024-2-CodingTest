@@ -6,6 +6,9 @@ import java.io.IOException;
 import java.util.*;
 
 public class Java1125 {
+    
+    //10장: 트리
+
     ArrayList<Integer>[] arr;
     int answer[];
     int count = 0;
