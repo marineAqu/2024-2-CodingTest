@@ -1,7 +1,6 @@
 package org.example;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
@@ -11,6 +10,7 @@ public class Java0923{
     Scanner scanner = new Scanner(System.in);
 
     //3장 정렬
+
     public void no6(){
         //6번 슬라이드 문제, 버블정렬 문제[015] 수 정렬하기 1 (시간제한 2초)
 
@@ -138,8 +138,11 @@ public class Java0923{
         int j = end;
 
         while (i <= j) {
-            while (j >= start + 1 && pivot < arr[j]) j--;  //피벗보다 작은 수가 나올 때까지 j--
-            while (i <= end && pivot > arr[i] ) i++;  //피벗보다 큰 수가 나올 떄까지 i++
+            while (j >= start + 1 && pivot < arr[j]) j--;
+            //피벗보다 작은 수가 나올 때까지 j--
+
+            while (i <= end && pivot > arr[i] ) i++;
+            //피벗보다 큰 수가 나올 떄까지 i++
 
             if (i < j) swap(arr, i++, j--);  // 찾은 i와 j를 교환하기
             else break;
