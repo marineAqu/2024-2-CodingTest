@@ -8,6 +8,8 @@ import java.util.*;
 
 public class Java0930 {
 
+    //4장 정렬
+
     //합병정렬에 사용할 함수
     int[] sorted = new int[1000000];
 
@@ -60,7 +62,8 @@ public class Java0930 {
         //int n = 100;
 
         // 1000000개짜리 파일
-        BufferedReader br = new BufferedReader(new FileReader("C:\\Codingtest2024\\src\\main\\resources\\Java0930\\merge_1000000.txt"));
+        BufferedReader br = new BufferedReader(new FileReader
+                ("C:\\Codingtest2024\\src\\main\\resources\\Java0930\\merge_1000000.txt"));
         int n = 1000000;
 
         int[] arr = new int[n];
@@ -71,7 +74,8 @@ public class Java0930 {
 
         mergeSort(arr, 0, n-1);
 
-        System.out.println("수행시간: " + (System.currentTimeMillis() - startTime) + "ms");
+        System.out.println("수행시간: " +
+                (System.currentTimeMillis() - startTime) + "ms");
 
         System.out.println(Arrays.toString(arr));
     }
@@ -112,7 +116,8 @@ public class Java0930 {
     public void no16() throws IOException {
         //16번 슬라이드 문제, 기수정렬 문제[022] 수 정렬하기3 (시간제한 3초)
 
-        BufferedReader br = new BufferedReader(new FileReader("C:\\Codingtest2024\\src\\main\\resources\\Java0930\\radix_10000000.txt"));
+        BufferedReader br = new BufferedReader(
+                new FileReader("C:\\Codingtest2024\\src\\main\\resources\\Java0930\\radix_10000000.txt"));
         int n = 10000000;
 
         int[] arr = new int[n];
@@ -126,6 +131,7 @@ public class Java0930 {
 
         System.out.println(Arrays.toString(arr));
 
-        System.out.println("수행시간: " + (System.currentTimeMillis() - startTime) + "ms");
+        System.out.println("수행시간: " +
+                (System.currentTimeMillis() - startTime) + "ms");
     }
 }
