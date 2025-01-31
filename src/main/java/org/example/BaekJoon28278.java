@@ -3,12 +3,15 @@ package org.example;
 import java.io.*;
 import java.util.Stack;
 
-public class Java0912 {
+// 백준 28278번 문제: 스택2 https://www.acmicpc.net/problem/28278
+
+
+public class BaekJoon28278 {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
     public void back28278() throws IOException {
-        // 백준 28278 : https://www.acmicpc.net/problem/28278
+
         int n = Integer.parseInt(br.readLine());
         String temp;
         Stack<Integer> stack = new Stack<>();
