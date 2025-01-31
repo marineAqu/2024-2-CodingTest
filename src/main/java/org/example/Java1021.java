@@ -6,6 +6,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Java1021 {
+
+    //6장 그리디
+
     public void no4() throws IOException {
         //4번 슬라이드 문제, 그리디 문제[032] 동전 개수의 최솟값 구하기 (제한시간 1초)
 
