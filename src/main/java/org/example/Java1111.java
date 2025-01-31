@@ -1,13 +1,14 @@
 package org.example;
 
-import org.w3c.dom.Node;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 
 public class Java1111 {
+
+    //8장 그래프2
+
     public void no7() throws IOException {
         //7번 슬라이드 문제: (위상 정렬) 그래프(2) 문제[53] 줄 세우기 (제한시간: 2초)
 
