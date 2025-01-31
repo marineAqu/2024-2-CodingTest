@@ -3,12 +3,14 @@ package org.example;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class Java1007BFS {
+
+    //5장 1/3 (BFS)
+
     LinkedList<Integer> adj[];
 
     Queue<Integer> queue = new LinkedList<>();
