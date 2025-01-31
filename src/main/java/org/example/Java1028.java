@@ -1,11 +1,12 @@
 package org.example;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
-import java.util.Stack;
 
 public class Java1028 {
+
+    //7장: 정수론
+
     public void no7() {
         //7번 슬라이드 문제, 정수론 문제[032] 소수 구하기 (제한시간 2초)
 
