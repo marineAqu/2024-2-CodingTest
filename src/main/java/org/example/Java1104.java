@@ -6,6 +6,9 @@ import java.io.IOException;
 import java.util.*;
 
 public class Java1104 {
+
+    //8장 그래프1
+
     int[] check;
     int nowCheck2 = 0;
     int no17Check = 0;
