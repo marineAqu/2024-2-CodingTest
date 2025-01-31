@@ -3,8 +3,9 @@ package org.example;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.StringTokenizer;
+
+//5장 (이진탐색)
 
 public class Java1007Binary {
     private void modQuicksort(int[] arr, int start, int end){
@@ -30,8 +31,11 @@ public class Java1007Binary {
         int j = end;
 
         while (i <= j) {
-            while (j >= start + 1 && pivot < arr[j]) j--;  //피벗보다 작은 수가 나올 때까지 j--
-            while (i <= end && pivot > arr[i] ) i++;  //피벗보다 큰 수가 나올 떄까지 i++
+            while (j >= start + 1 && pivot < arr[j]) j--;
+            //피벗보다 작은 수가 나올 때까지 j--
+
+            while (i <= end && pivot > arr[i] ) i++;
+            //피벗보다 큰 수가 나올 떄까지 i++
 
             if (i < j) swap(arr, i++, j--);  // 찾은 i와 j를 교환하기
             else break;
