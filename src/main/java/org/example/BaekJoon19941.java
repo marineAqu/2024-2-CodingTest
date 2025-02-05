@@ -50,7 +50,6 @@ public class BaekJoon19941 {
                 if(didEat == false) hamberger.add(i);
             }
             
-            
             //사람인 경우
             else{
                 while (hamberger.size() > 0) {
